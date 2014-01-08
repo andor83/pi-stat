@@ -1,0 +1,42 @@
+extends pi_layout
+
+block content
+	div#screen_saver
+		div#clock_and_temp
+	div#title= title
+	div#content
+		div#home.module.left
+			div#temp_chart
+			div#temp_controls
+			div#op_mode
+			div#on_off_switch
+				div.label System Power
+				input#thermostat_on(type='radio', name='on_off', value='on')
+				label(for='thermostat_on') ON
+				input#thermostat_off(type='radio', name='on_off', value='off', checked=true)
+				label(for='thermostat_off') OFF
+				
+		div#scheduling.module.right
+			p
+				h1 !nothing here yet!
+		div#history.module.right
+			p
+				h1 history here
+	div#footer
+		table#menu(border="0")
+			tbody
+				tr
+	
+	script(type='text/javascript').
+		// collect and reformat options
+		var options_raw = !{JSON.stringify(config)};
+		var options = {};
+		$.each(options_raw, function(i,v) {
+			options[v.id] = {
+				id: v.id,
+				value: v.value,
+				label: v.label,
+				description:  v.description
+			}
+		});
+	script(src='/javascripts/thermostat.js', language='javascript')
