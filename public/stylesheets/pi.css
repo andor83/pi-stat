@@ -184,7 +184,6 @@ div#op_mode {
 	right: 23px;
 	width: 100px;
 	height: 70px;
-	-webkit-transition: opacity 0.5s linear 0s;
 	background-repeat: no-repeat;
 }
 

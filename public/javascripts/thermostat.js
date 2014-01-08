@@ -22,6 +22,10 @@ function thermo(options) {
 		'history': {
 			element: $('div#history.module').data('ctrl',this),
 			menu_item_element: false
+		},
+		'weather': {
+			element: $('div#weather.module').data('ctrl',this),
+			menu_item_element: false
 		}
 	}
 	
@@ -279,13 +283,15 @@ function thermo(options) {
 	
 	this.change_op_mode = function(op_mode) {
 		this.client_state.op_mode = op_mode;
-		
-		if(this.client_state.op_mode == "heating") {
-			$("#op_mode").html('').append($("<img src='/images/charizard.gif' />"));
-		} else if(this.client_state.op_mode == "cooling") {
-			$("#op_mode").html('').append($("<img src='/images/vanillite.gif' />"));
-		} else {
-			$("#op_mode").html('').append($("<img src='/images/snorlax.gif' />"));
+		var state_map = {
+			"heating": "charizard.gif",
+			"cooling": "vanillite.gif",
+			"standby": "snorlax.gif"
 		}
+		
+		$("#op_mode").fadeTo(500,0,function() {
+			$(this).html('').append($("<img src='/images/" + state_map[op_mode] + "' />")).fadeTo(500,1);
+		})
+		
 	};
 }

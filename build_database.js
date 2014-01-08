@@ -18,6 +18,34 @@ var config_items = [
 		$gui_edit: 1
 	},
 	{
+		$id: "wunderground_api_key",
+		$value: "f01a2b10054c7e4a",
+		$label: "Weather Underground API Key",
+		$description: "API key from weather underground, to display and track weather",
+		$gui_edit: 1
+	},
+	{
+		$id: "local_city",
+		$value: "Houston",
+		$label: "Local City",
+		$description: "The closest city, which is used to fetch the local weather",
+		$gui_edit: 1
+	},
+	{
+		$id: "local_state",
+		$value: "TX",
+		$label: "Local State",
+		$description: "The state in which you reside",
+		$gui_edit: 1
+	},
+	{
+		$id: "weather_update_interval",
+		$value: "10",
+		$label: "Weather Update Interval",
+		$description: "Number of minutes between each check of the local weather",
+		$gui_edit: 1
+	},
+	{
 		$id: "screensaver_timeout",
 		$value: "300",
 		$label: "Screen Saver Timeout",
